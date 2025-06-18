@@ -68,7 +68,12 @@
         function sendSMS() {
             const phoneNumber = '5089555025';
             const message = 'Hello';
-            window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+            // Using the most compatible SMS URL scheme
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                window.location.href = `sms:${phoneNumber}&body=${encodeURIComponent(message)}`;
+            } else {
+                window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+            }
         }
     </script>
 </body>
