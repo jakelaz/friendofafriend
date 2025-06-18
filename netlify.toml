@@ -1,3 +1,0 @@
-[build]
-  publish = "Landing Page"
-  command = ""  # No build command needed for static site 
