@@ -4,71 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            cursor: pointer;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-
-        .container:hover {
-            transform: translateY(-5px);
-        }
-
-        .phone-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .instructions {
-            font-size: 1.2rem;
-            color: #4a5568;
-            max-width: 400px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 480px) {
-            .phone-number {
-                font-size: 2rem;
-            }
-            .instructions {
-                font-size: 1rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" onclick="sendSMS()">
-        <div class="phone-number">(508) 955-5025</div>
-        <div class="instructions">
-            Click anywhere on this page to send "Hello" via text message
+    <div class="overlay">
+        <div class="card">
+            <div class="background-wrapper"></div>
+            <img src="logo.png" alt="Logo" class="logo" />
+            <button class="sms-btn" onclick="sendSMS()">Text Hello</button>
         </div>
     </div>
-
     <script>
         function sendSMS() {
             const phoneNumber = '5089555025';
             const message = 'Hello';
-            // Using the most compatible SMS URL scheme
             if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
                 window.location.href = `sms:${phoneNumber}&body=${encodeURIComponent(message)}`;
             } else {
