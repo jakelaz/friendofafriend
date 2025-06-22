@@ -6,12 +6,33 @@
     <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="overlay">
-        <div class="card">
-            <div class="background-wrapper"></div>
-            <img src="logo.png" alt="Logo" class="logo" />
-            <button class="sms-btn" onclick="sendSMS()">Text Hello</button>
+<body class="min-h-screen bg-white font-openrunde p-4 flex items-center justify-center">
+    <div class="w-full h-[750px] md:h-[750px] sm:h-screen max-w-4xl rounded-3xl overflow-hidden shadow-[0px_0px_1px_0px_rgba(0,0,0,0.2),0px_2px_4px_0px_rgba(0,0,0,0.04),0px_16px_22px_0px_rgba(0,0,0,0.03)] relative">
+        <!-- Clear background image (no blur) -->
+        <img src="background.png" alt="Background" class="absolute inset-0 w-full h-full object-cover" />
+        
+        <!-- Blurred background image with mask applied directly to the image -->
+        <img src="background.png" alt="Background Blurred" class="absolute inset-0 w-full h-full object-cover blur-sm" style="mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.3) 100%);" />
+        
+        <!-- Additional gradient overlay for color adjustment -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40"></div>
+        
+        <!-- Content Container -->
+        <div class="relative z-10 h-full flex flex-col">
+            <!-- Growing first row with centered logo and compliance text -->
+            <div class="flex-1 flex flex-col items-center justify-center px-6">
+                <img src="logo.png" alt="Logo" class="h-20 rounded-full mb-6" />
+                <div class="text-white text-[12px] text-center leading-relaxed text-balance">
+                    By texting "Hello," you agree to receive recurring AI assistant messages from Friend of a Friend. Msg frequency varies. Msg & data rates may apply. Reply STOP to stop, HELP for help.
+                </div>
+            </div>
+            
+            <!-- Button at bottom -->
+            <div class="p-6">
+                <button class="w-full backdrop-blur-md bg-white/5 hover:bg-white/20 text-white font-medium py-4 px-6 rounded-full transition-all duration-200" onclick="sendSMS()">
+                    Text Hello
+                </button>
+            </div>
         </div>
     </div>
     <script>
